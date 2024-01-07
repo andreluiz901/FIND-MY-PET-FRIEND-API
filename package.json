@@ -1,0 +1,38 @@
+{
+  "name": "find-my-pet-friend-api",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "tsx watch ./src/server.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fastify/cookie": "^9.2.0",
+    "@fastify/jwt": "^7.2.4",
+    "@types/bcrypt": "^5.0.2",
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.3.1",
+    "fastify": "^4.25.2",
+    "typescript": "^5.3.3",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@prisma/client": "^5.7.1",
+    "@types/node": "^20.10.6",
+    "@types/supertest": "^6.0.2",
+    "@typescript-eslint/eslint-plugin": "^6.18.0",
+    "@typescript-eslint/parser": "^6.18.0",
+    "eslint": "^8.56.0",
+    "prisma": "^5.7.1",
+    "supertest": "^6.3.3",
+    "tsup": "^8.0.1",
+    "tsx": "^4.7.0",
+    "vite-tsconfig-paths": "^4.2.3",
+    "vitest": "^1.1.3"
+  }
+}
