@@ -24,7 +24,7 @@ model User {
   created_at     DateTime @default(now())
   city           String
   state          String
-  zip_code       String
+  zip_code       Int
   country        String   @default("Brasil")
   address_line_1 String?
   address_line_2 String?
@@ -56,11 +56,11 @@ model Org {
   id             String   @id @default(uuid())
   email          String   @unique
   password_hash  String
-  phone          String?
+  phone          Int?
   description    String?
   city           String
   state          String
-  zip_code       String
+  zip_code       Int
   country        String   @default("Brasil")
   address_line_1 String?
   address_line_2 String?
