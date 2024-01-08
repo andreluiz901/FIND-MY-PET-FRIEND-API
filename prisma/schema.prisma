@@ -1,0 +1,73 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  USER
+  ORG
+}
+
+model User {
+  id             String   @id @default(uuid())
+  email          String   @unique
+  password_hash  String
+  has_adopted    Boolean  @default(false)
+  role           Role     @default(USER)
+  created_at     DateTime @default(now())
+  city           String
+  state          String
+  zip_code       String
+  country        String   @default("Brasil")
+  address_line_1 String?
+  address_line_2 String?
+
+  Pets Pets[]
+
+  @@map("users")
+}
+
+model Pets {
+  id          String   @id @default(uuid())
+  details     String
+  race        String
+  specie      String
+  description String
+  created_at  DateTime @default(now())
+  is_adopted  Boolean  @default(false)
+
+  org    Org    @relation(fields: [org_Id], references: [id])
+  org_Id String
+
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
+
+  @@map("pets")
+}
+
+model Org {
+  id             String   @id @default(uuid())
+  email          String   @unique
+  password_hash  String
+  phone          String?
+  description    String?
+  city           String
+  state          String
+  zip_code       String
+  country        String   @default("Brasil")
+  address_line_1 String?
+  address_line_2 String?
+  created_at     DateTime @default(now())
+  role           Role     @default(ORG)
+
+  Pets Pets[]
+
+  @@map("orgs")
+}

@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  find-my-friend-pet:
+    image: bitnami/postgresql
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRESQL_USERNAME=dockerFriendPet
+      - POSTGRESQL_PASSWORD=dockerFriendPet
+      - POSTGRE_DATABASE=find-my-friend-pet
